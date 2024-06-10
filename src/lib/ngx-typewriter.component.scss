@@ -1,0 +1,27 @@
+.om-typewriter-text {
+    position: relative;
+    width: fit-content;
+    
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -5px;
+        bottom: 0;
+        height: 90%;
+        margin: auto;
+        aspect-ratio: 1/16;
+        background-color: var(--primary-color-text);
+        animation: omTypewriter 1s infinite ease-in-out;
+      }
+}
+
+@keyframes omTypewriter {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
