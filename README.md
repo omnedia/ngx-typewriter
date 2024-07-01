@@ -45,6 +45,7 @@ words: string[] = ['Im', 'typed', 'one', 'after', 'another'];
 ```html
 <om-typewriter
         [words]="words"
+        [disableLoop]="true"
         [writeSpeed]="writeSpeed in Ms"
         [deleteDelay]="deleteDelay in Ms"
         [writeDelay]="writeDelay in Ms"
@@ -55,6 +56,7 @@ words: string[] = ['Im', 'typed', 'one', 'after', 'another'];
 Starts the typewriter effect.
 
 - `words`: An array of strings to be typed.
+- `disableLoop`: (optional): If set to true, the last word in the words array will stay.
 - `writeSpeed` (optional): The speed of typing each character in milliseconds. Default is 40.
 - `deleteDelay` (optional): The delay before starting to delete the typed word in milliseconds. Default is 3500.
 - `writeDelay` (optional): The delay before starting to type the next word after deleting the current word in milliseconds. Default is 50.

@@ -1,31 +1,34 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { TypeWriter } from '@omnedia/rxjs-typewriter';
-import { Observable, map } from 'rxjs';
+import { Component, Input, OnInit, ViewEncapsulation } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { TypeWriter } from "@omnedia/rxjs-typewriter";
+import { Observable, map } from "rxjs";
 
 @Component({
-  selector: 'om-typewriter',
+  selector: "om-typewriter",
   standalone: true,
   imports: [CommonModule],
   providers: [TypeWriter],
-  templateUrl: './ngx-typewriter.component.html',
-  styleUrl: './ngx-typewriter.component.scss',
+  templateUrl: "./ngx-typewriter.component.html",
+  styleUrl: "./ngx-typewriter.component.scss",
   encapsulation: ViewEncapsulation.None,
 })
 export class NgxTypewriterComponent implements OnInit {
-  @Input({ required: true, alias: 'words' })
+  @Input({ required: true, alias: "words" })
   words!: string[];
 
-  @Input('writeSpeed')
+  @Input("disableLoop")
+  disableLoop?: boolean;
+
+  @Input("writeSpeed")
   writeSpeed?: number;
 
-  @Input('deleteDelay')
+  @Input("deleteDelay")
   deleteDelay?: number;
 
-  @Input('writeDelay')
+  @Input("writeDelay")
   writeDelay?: number;
 
-  @Input('styleClass')
+  @Input("styleClass")
   styleClass?: string;
 
   typeWriterText$?: Observable<string>;
@@ -34,15 +37,16 @@ export class NgxTypewriterComponent implements OnInit {
 
   ngOnInit(): void {
     if (!this.words) {
-      throw Error('[words] is required!');
+      throw Error("[words] is required!");
     }
 
     this.typeWriterText$ = this.typeWriter
       .typeWriteEffect(
         this.words,
+        this.disableLoop ? false : true,
         this.writeSpeed,
         this.deleteDelay,
-        this.writeDelay,
+        this.writeDelay
       )
       .pipe(map((text) => text));
   }
