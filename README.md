@@ -1,5 +1,13 @@
 # Ngx Typewriter Component
 
+<a href="https://ngxui.com" target="_blank" style="display: flex;gap: .5rem;align-items: center;cursor: pointer; padding: 0 0 0 0; height: fit-content;">
+  <img src="https://ngxui.com/assets/img/ngxui-logo.png" style="width: 64px;height: 64px;">
+  <p style="font-weight: bold; padding: 0; margin: 0; font-size: 4rem">NGXUI</p>
+</a>
+
+This Library is part of the NGXUI ecosystem. <br>
+View all available components at https://ngxui.com
+
 `@omnedia/ngx-typewriter` is a lightweight and easy-to-use angular library for creating typewriter effects in your web applications. <br>
 It uses RxJS to manage the typewriting effect, ensuring smooth and customizable animations. <br>
 
@@ -16,15 +24,16 @@ npm install @omnedia/ngx-typewriter
 First, import the Component class from the library:
 
 ```typescript
-import { NgxTypewriterComponent } from '@omnedia/ngx-typewriter';
+import {NgxTypewriterComponent} from '@omnedia/ngx-typewriter';
 
 @Component({
   ...
-  imports: [
-    ...
-    NgxTypewriterComponent,
-  ],
+    imports:
+[
   ...
+    NgxTypewriterComponent,
+],
+...
 })
 ```
 
@@ -35,22 +44,24 @@ words: string[] = ['Im', 'typed', 'one', 'after', 'another'];
 ```
 
 ```html
+
 <om-typewriter
-        [words]="words"
-      ></om-typewriter>
+  [words]="words"
+></om-typewriter>
 ```
 
 ## API
 
 ```html
+
 <om-typewriter
-        [words]="words"
-        [disableLoop]="true"
-        [writeSpeed]="writeSpeed in Ms"
-        [deleteDelay]="deleteDelay in Ms"
-        [writeDelay]="writeDelay in Ms"
-        styleClass="your-custom-class"
-      ></om-typewriter>
+  [words]="words"
+  [disableLoop]="true"
+  [writeSpeed]="writeSpeed in Ms"
+  [deleteDelay]="deleteDelay in Ms"
+  [writeDelay]="writeDelay in Ms"
+  styleClass="your-custom-class"
+></om-typewriter>
 ```
 
 Starts the typewriter effect.
